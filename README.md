@@ -1,4 +1,13 @@
+## React App
+
+Simple React app to test the socket IO connection
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Instructions
+
+yarn install
+yarn start
 
 ## Available Scripts
 

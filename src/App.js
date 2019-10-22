@@ -26,13 +26,12 @@ function App() {
     });
   }, []);
 
-
   return (
     <div className="App">
       <div className="my-container">
         <div>Messages: {messages.length}</div>
         {messages.map((message, i) =>
-          <p key={i} >#{message.count} -- {message.text}</p>
+          <p key={message.count} >#{message.count} -- {message.text}</p>
         )}
       </div>
     </div>
