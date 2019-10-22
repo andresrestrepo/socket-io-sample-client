@@ -2,6 +2,8 @@
 
 Simple React app to test the socket IO connection
 
+![](docs/screen.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Instructions
