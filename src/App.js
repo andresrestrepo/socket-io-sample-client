@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import io from 'socket.io-client';
+
 
 function App() {
+
+  const [messages, setMessages] = useState([]);
+
+  const updateMessages = (msg) => {
+    setMessages(messages_ => [...messages_, {
+      count: msg.count,
+      text: msg.data
+    }]);
+  }
+
+  useEffect(() => {
+    const socket = io('http://localhost:5000');
+
+    socket.on('connect', function () {
+      socket.emit('my_event', { data: 'I\'m connected!' });
+    });
+
+    socket.on('my_response', function (msg, cb) {
+      updateMessages(msg);
+    });
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="my-container">
+        <div>Messages: {messages.length}</div>
+        {messages.map((message, i) =>
+          <p key={i} >#{message.count} -- {message.text}</p>
+        )}
+      </div>
     </div>
   );
 }

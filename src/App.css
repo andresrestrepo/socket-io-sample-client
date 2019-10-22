@@ -20,3 +20,15 @@
 .App-link {
   color: #09d3ac;
 }
+
+.my-container{
+  background: #3e3e3e;
+  width: 500px;
+  min-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 23px;
+  border-radius: 4px;
+  color: #FF9800;
+  padding: 30px;
+}
